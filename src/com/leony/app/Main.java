@@ -1,5 +1,6 @@
 package com.leony.app;
 
+import com.leony.home.ConsumingJSONWithDOMApi;
 import com.leony.home.ProducingJSON;
 
 import java.io.IOException;
@@ -8,6 +9,25 @@ public class Main {
 
     public static void main(String[] args) {
         producingJSON();
+        consumingJSONWithDOMApi();
+    }
+
+    private static void consumingJSONWithDOMApi() {
+        ConsumingJSONWithDOMApi consumingJSONWithDOMApi = new ConsumingJSONWithDOMApi();
+
+        printMessage("ConsumingJSONWithDOMApi: read a JSON file");
+        try {
+            consumingJSONWithDOMApi.readJSONFile();
+        } catch (Exception e) {
+            System.out.println(e.getCause());
+        }
+
+        printMessage("ConsumingJSONWithDOMApi: parse and read a JSON tree");
+        try {
+            consumingJSONWithDOMApi.readAndParseJsonTree();
+        } catch (Exception e) {
+            System.out.println(e.getCause());
+        }
     }
 
     private static void producingJSON() {

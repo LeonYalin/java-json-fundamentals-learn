@@ -72,11 +72,11 @@ public class ProducingJSON {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter writer = objectMapper.writerWithDefaultPrettyPrinter();
         List<Person> persons = Arrays.asList(PersonFixtures.me, PersonFixtures.nelly, PersonFixtures.lisa);
-        writer.writeValue(System.out, persons);
+        String personsJSONString = writer.writeValueAsString(persons);
+        System.out.println(personsJSONString);
 
         // or
 
-        // String personsJSONString = writer.writeValueAsString(persons);
-        // System.out.println(personsJSONString);
+        // writer.writeValue(System.out, persons);
     }
 }
